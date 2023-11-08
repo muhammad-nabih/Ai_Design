@@ -45,19 +45,19 @@ colorsItems.forEach((colorItem) => {
 
 // [==> Start Random Background Section <==]
 const imageArray = [
-  "landing1.jpg",
-  "landing2.jpg",
-  "landing3.jpg",
-  "landing4.jpg",
-  "landing5.jpg",
+  "images/landing1.jpg",
+  "images/landing2.jpg",
+  "images/landing3.jpg",
+  "images/landing4.jpg",
+  "images/landing5.jpg",
 ];
 
 // Get Random image
 function getRandomImage() {
   let randomNumber = Math.floor(Math.random() * imageArray.length);
   const imageName = imageArray[randomNumber];
-  console.log(imageName)
-  return `images/${imageName}`;
+  console.log(imageName);
+  return imageName;
 }
 
 // Update Background Image Of Landing
@@ -66,9 +66,7 @@ function updateBackgroundImageOfLanding() {
   const img = new Image();
   img.src = imageSource;
   img.onload = (e) => {
-
-      landingPage.style.backgroundImage = `url(${imageSource})`;
-;
+    landingPage.style.backgroundImage = `url(${imageSource})`;
     landingPage.style.transitionDuration = ".2s";
   };
 }
