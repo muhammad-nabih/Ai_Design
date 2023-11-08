@@ -39,13 +39,11 @@ body {
   left: -220px;
   background-color: #eeeeee0f;
   transition: .3s;
-
 }
 
 .settings-container {
   padding: 0 8px;
   font-weight: bold;
-
   text-transform: uppercase;
 }
 
@@ -56,13 +54,56 @@ body {
   padding: 15px;
   margin: 8px auto;
   border-top-right-radius: 45px;
+  filter: drop-shadow(4px 1px 1px var(--main-color));
   /* Color for h2 elements in the settings container */
 }
 
-.background-images-random_options> h2 {
+.background-images-random_options>h2 {
   color: white;
   font-size: .7rem;
   padding: 2px 8px;
+}
+
+.background-images-random_options .action {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.background-images-random_options .action button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--main-color);
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid var(--main-color);
+  width: 40%;
+  padding: 4px 8px;
+  position: relative;
+  transition: .3s
+}
+
+.background-images-random_options .action button::before {
+  content: '';
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  background-color: var(--text-color);
+  top: 0;
+  left: 0;
+  mix-blend-mode: multiply;
+  transition: .3s;
+  overflow: hidden;
+}
+
+.background-images-random_options .action button:hover {
+  color: var(--main-color)
+}
+
+.background-images-random_options .action button:hover::before,
+.background-images-random_options .action button.active::before {
+  width: 100%;
 }
 
 .setting-box.open {
