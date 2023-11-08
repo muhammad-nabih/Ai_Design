@@ -10,17 +10,27 @@ const backgroundRandomInterval = setInterval(
   5000
 );
 
+if (localStorage.getItem("actionType") === "run") {
+  toggleActiveState(stop, run);
+  backgroundRandomInterval = setInterval(updateBackgroundImageOfLanding, 5000);
+} else {
+  toggleActiveState(stop, run);
+  clearInterval(backgroundRandomInterval);
+}
+
 function toggleRandomBackgroundImage(action) {
   action.addEventListener("click", (e) => {
     if (e.target.id === "stop") {
-      clearInterval(backgroundRandomInterval);
       toggleActiveState(stop, run);
+      localStorage.setItem("actionType", "stop");
+      clearInterval(backgroundRandomInterval);
     } else if (e.target.id === "run") {
+      toggleActiveState(run, stop);
+      localStorage.setItem("actionType", "run");
       backgroundRandomInterval = setInterval(
         updateBackgroundImageOfLanding,
         5000
       );
-      toggleActiveState(run, stop);
     }
   });
 }
@@ -29,7 +39,6 @@ function toggleActiveState(activeElement, inactiveElement) {
   activeElement.classList.add("active");
   inactiveElement.classList.remove("active");
 }
-
 toggleRandomBackgroundImage(stop);
 toggleRandomBackgroundImage(run);
 
