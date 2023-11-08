@@ -5,17 +5,23 @@ const linksListLanding = document.querySelectorAll(".links li");
 const colorsItemsLinks = document.querySelectorAll(".colorsItems li");
 const stop = document.querySelector("#stop");
 const run = document.querySelector("#run");
-const backgroundRandomInterval = setInterval(
+let backgroundRandomInterval = setInterval(
   updateBackgroundImageOfLanding,
   5000
 );
 
-if (localStorage.getItem("actionType") === "run") {
-  toggleActiveState(stop, run);
-  backgroundRandomInterval = setInterval(updateBackgroundImageOfLanding, 5000);
-} else {
-  toggleActiveState(stop, run);
-  clearInterval(backgroundRandomInterval);
+const actionType = localStorage.getItem("actionType");
+if (actionType) {
+  if (actionType === "run") {
+    toggleActiveState(run, stop);
+    backgroundRandomInterval = setInterval(
+      updateBackgroundImageOfLanding,
+      5000
+    );
+  } else {
+    toggleActiveState(stop, run);
+    clearInterval(backgroundRandomInterval);
+  }
 }
 
 function toggleRandomBackgroundImage(action) {
