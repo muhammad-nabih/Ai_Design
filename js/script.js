@@ -57,7 +57,7 @@ function getRandomImage() {
   let randomNumber = Math.floor(Math.random() * imageArray.length);
   const imageName = imageArray[randomNumber];
   console.log(imageName)
-  return `../images/${imageName}`;
+  return `images/${imageName}`;
 }
 
 // Update Background Image Of Landing
