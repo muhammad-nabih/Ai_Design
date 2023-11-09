@@ -1,3 +1,4 @@
+// Selecting DOM elements
 const landingPage = document.querySelector(".landing-page");
 const settingBox = document.querySelector(".setting-box");
 const toggleSetting = document.querySelector(".toggle-setting");
@@ -5,11 +6,14 @@ const linksListLanding = document.querySelectorAll(".links li");
 const colorsItemsLinks = document.querySelectorAll(".colorsItems li");
 const stop = document.querySelector("#stop");
 const run = document.querySelector("#run");
+
+// Setting up an interval to update background images
 let backgroundRandomInterval = setInterval(
   updateBackgroundImageOfLanding,
   5000
 );
 
+// Checking localStorage for previous user action (run/stop)
 const actionType = localStorage.getItem("actionType");
 if (actionType) {
   if (actionType === "run") {
@@ -24,6 +28,7 @@ if (actionType) {
   }
 }
 
+// Function to toggle random background image based on user action
 function toggleRandomBackgroundImage(action) {
   action.addEventListener("click", (e) => {
     if (e.target.id === "stop") {
@@ -41,17 +46,21 @@ function toggleRandomBackgroundImage(action) {
   });
 }
 
+// Function to toggle active state of elements
 function toggleActiveState(activeElement, inactiveElement) {
   activeElement.classList.add("active");
   inactiveElement.classList.remove("active");
 }
+
+// Initializing toggle functions for run/stop buttons
 toggleRandomBackgroundImage(stop);
 toggleRandomBackgroundImage(run);
 
-// Check localStorage is Not Empty
+// Checking and applying stored color preferences from localStorage
 const colorStorage = localStorage.getItem("optionColor");
 const activeColor = localStorage.getItem("activeLink");
 
+// Function to set active state for color options
 function activeLi(colorsItemsLinks) {
   if (activeColor) {
     colorsItemsLinks.forEach((link) =>
@@ -67,19 +76,20 @@ if (colorStorage) {
   document.documentElement.style.setProperty("--main-color", colorStorage);
   localStorage.setItem("optionColor", colorStorage);
 }
+
+// Function to set color option and update localStorage
 function setColorOption(color) {
   document.documentElement.style.setProperty("--main-color", color);
   localStorage.setItem("optionColor", color);
 }
 
-// [==> Start Spin Effect And Slider Effect  <==]
+// Toggle settings box visibility and add spin effect
 toggleSetting.addEventListener("click", () => {
   settingBox.classList.toggle("open");
   document.querySelector(".fa-gear").classList.toggle("fa-spin");
 });
-//[==> End Spin Effect And Slider Effect  <==]
 
-// [==> Start Colors Changed  <==]
+// Function to handle color changes on click
 const colorsItems = document.querySelectorAll(".colorsItems li");
 colorsItems.forEach((colorItem) => {
   colorItem.addEventListener("click", (e) => {
@@ -87,9 +97,8 @@ colorsItems.forEach((colorItem) => {
     setColorOption(color);
   });
 });
-//[==> End Colors Changed  <==]
 
-// [==> Start Random Background Section <==]
+// Array of background images
 const imageArray = [
   "images/landing1.jpg",
   "images/landing2.jpg",
@@ -98,14 +107,14 @@ const imageArray = [
   "images/landing5.jpg",
 ];
 
-// Get Random image
+// Function to get a random image from the array
 function getRandomImage() {
   let randomNumber = Math.floor(Math.random() * imageArray.length);
   const imageName = imageArray[randomNumber];
   return imageName;
 }
 
-// Update Background Image Of Landing
+// Function to update background image of the landing page
 function updateBackgroundImageOfLanding() {
   let imageSource = getRandomImage();
   const img = new Image();
@@ -116,16 +125,14 @@ function updateBackgroundImageOfLanding() {
   };
 }
 
-// [==> End Random Background Section <==]
-
-// [==> Start Type Effect With Using type.js library <==]
+// Function to create a typing effect using the type.js library
 function createTypedEffect() {
   let typed = new Typed("#type-output", {
     strings: [
       "Our website harnesses provides innovative solutions",
       " by <span class='highlighter'>AI</span>",
     ],
-    typeSpeed: 100,
+    typeSpeed: 50,
     backSpeed: 50,
     backDelay: 1000,
     fadeOut: true,
@@ -134,9 +141,8 @@ function createTypedEffect() {
   });
 }
 createTypedEffect();
-//^ [==> End Type Effect With Using type.js library <==]
 
-// [==> Start Active Link Settings Function  <==]
+// Function to handle active link settings
 function activeLinkSettings(linksList) {
   linksList.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -147,7 +153,6 @@ function activeLinkSettings(linksList) {
     });
   });
 }
+// Applying active link settings for both links in landing and color options
 activeLinkSettings(linksListLanding);
 activeLinkSettings(colorsItemsLinks);
-
-// [==> End Active Link Settings Function  <==]

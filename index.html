@@ -16,49 +16,58 @@
 </head>
 
 <body>
-  <!--^ Start Setting Box -->
-  <div class="setting-box">
+  <!-- Start Setting Box Section -->
+  <aside class="setting-box">
     <div class="toggle-setting">
-      <i class="fa fa-gear "></i>
+      <i class="fa fa-gear"></i>
     </div>
     <div class="settings-container">
-      <h2 class="colors">colors
+      <!-- Colors Section -->
+      <h2 class="colors">Colors
         <i color="var(--main-color)" class="fa-solid fa-palette"></i>
       </h2>
       <ul class="colorsItems">
+        <!-- Color Options -->
         <li id="1" data-color="#00ADB5"></li>
         <li id="2" data-color="#FFBB5C"></li>
         <li id="3" data-color="#96C291"></li>
         <li id="4" data-color="#EA1179"></li>
         <li id="5" data-color="#B799FF"></li>
       </ul>
+      <!-- Random Background Image Options -->
       <div class="background-images-random_options">
-        <h2> Random background image </h2>
+        <h2>Random background image</h2>
         <div class="action">
           <button id="run">Run</button>
           <button id="stop">Stop</button>
         </div>
       </div>
     </div>
-  </div>
-  <!-- ^ End Setting Box -->
+  </aside>
+  <!-- End Setting Box Section -->
 
-  <!-- Start Landing  Page  -->
+  <!-- Start Landing Page Section -->
   <section class="landing-page">
+    <!-- Header Area -->
     <header class="header-area">
+      <!-- Logo -->
       <div class="logo">
         <a href="#"><img src="images/logo.png" alt="logo"></a>
       </div>
+      <!-- Navigation -->
       <nav>
         <ul class="links">
+          <!-- Navigation Links -->
           <li id="1" class="active"><a href="#">Home</a></li>
           <li id="2"><a href="#">Features</a></li>
           <li id="3"><a href="#">Products</a></li>
           <li id="4"><a href="#">Contact</a></li>
-          <li id="5"><a href="#">About</a></li>
+          <li id="5"><a href="#about">About</a></li>
         </ul>
       </nav>
     </header>
+
+    <!-- Introduction Text -->
     <div class="introduction-text">
       <h1>We are a <span class="highlighter">Creative</span> Agency</h1>
       <p id="type-output">
@@ -67,20 +76,40 @@
       </p>
     </div>
   </section>
-  <!--End Landing Page -->
+  <!-- End Landing Page Section -->
 
-  <!-- Start Section Features  -->
-  <section class="features">
+  <!-- Start Container Section -->
+  <main class="container">
+    <!-- Start About Section -->
+    <section class="about" id="about">
+      <div class="title">
+        <h2>About</h2>
+      </div>
+      <div class="about-content">
+        <!-- About Image -->
+        <div class="image">
+          <img src="images/section1.png" alt="Robot">
+        </div>
+        <!-- About Content -->
+        <div class="content">
+          <h3>This is About Section</h3>
+          <p>
+            Discover cutting-edge AI services at our platform, where innovation meets efficiency. Explore a diverse
+            range of artificial intelligence solutions revolutionizing industries. Unleash the power of AI for
+            unparalleled advancements.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
 
-  </section>
-  <!-- End Section Features  -->
+  </main>
+  <!-- End Container Section -->
 
-
-
+  <!-- External Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="js/script.js"></script>
   <script src="js/all.min.js"></script>
-
 
 </body>
 

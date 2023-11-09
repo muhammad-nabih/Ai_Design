@@ -23,6 +23,19 @@ li {
   display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  user-select: none;
+}
+
+::selection {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   /* Set font for the body */
@@ -37,7 +50,7 @@ body {
   z-index: 1000;
   top: 0;
   left: -220px;
-  background-color: #eeeeee0f;
+  background-color: #00000092;
   transition: .3s;
 }
 
@@ -47,6 +60,7 @@ body {
   text-transform: uppercase;
 }
 
+/* Comments: Styling for the colors section */
 .settings-container h2.colors {
   color: var(--main-color);
   background: #090c0e;
@@ -58,8 +72,9 @@ body {
   /* Color for h2 elements in the settings container */
 }
 
+/* Comments: Styling for the random background images options */
 .background-images-random_options>h2 {
-  color: white;
+  color: var(--text-color);
   font-size: .7rem;
   padding: 2px 8px;
 }
@@ -81,7 +96,7 @@ body {
   width: 40%;
   padding: 4px 8px;
   position: relative;
-  transition: .3s
+  transition: .3s;
 }
 
 .background-images-random_options .action button::before {
@@ -92,13 +107,13 @@ body {
   background-color: var(--text-color);
   top: 0;
   left: 0;
-  mix-blend-mode: multiply;
   transition: .3s;
   overflow: hidden;
+  z-index: -1;
 }
 
 .background-images-random_options .action button:hover {
-  color: var(--main-color)
+  color: var(--main-color);
 }
 
 .background-images-random_options .action button:hover::before,
@@ -110,13 +125,17 @@ body {
   left: 0;
 }
 
+/* Comments: Toggle settings button styling */
 .toggle-setting {
   position: absolute;
   left: 100%;
   top: 20%;
-  width: 40px;
-  height: 40px;
-  background-color: var(--text-color);
+  width: 50px;
+  display: grid;
+  place-items: center;
+  height: 50px;
+  border: 1px solid var(--main-color);
+  border-left: 0px;
   display: grid;
   place-items: center;
   border-top-right-radius: 4px;
@@ -124,6 +143,13 @@ body {
   padding: 10px;
   font-size: 1.2rem;
   cursor: pointer;
+  background-color: #00000072;
+}
+
+.toggle-setting .fa-gear {
+  color: var(--main-color);
+
+
 }
 
 #setting {
@@ -154,7 +180,7 @@ ul.colorsItems>li:hover {
   transform: scale(1.2);
 }
 
-/* Define different color options with hover effects */
+/* Comments: Define different color options with hover effects */
 ul.colorsItems>li:first-child {
   background-color: #00ADB5;
 }
@@ -197,7 +223,7 @@ ul.colorsItems>li:last-child:hover {
 
 ul.colorsItems>li.active {
   opacity: 1;
-  filter: drop-shadow(0px 0px 6px var(--main-color))
+  filter: drop-shadow(0px 0px 6px var(--main-color));
 }
 
 /* End Setting Section */
@@ -251,7 +277,6 @@ nav .links li a {
   transition: .3s;
   font-weight: bold;
   font-size: 1rem;
-
 }
 
 nav .links li a:hover,
@@ -331,14 +356,13 @@ span.highlighter {
     font-size: 1.2rem;
   }
 
-
   nav .links li:hover {
     background-color: #00000070;
     border: solid 1px var(--text-color);
   }
 
   nav .links li:hover a {
-    color: var(--main-color)
+    color: var(--main-color);
   }
 
   .logo {
@@ -351,8 +375,122 @@ span.highlighter {
   }
 }
 
-section.features {
-  height: 1000px;
+/* Start Container  */
+.container {
+  padding: 20px;
   width: 100%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Start About Section  */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  gap: 20px;
+}
+
+.about .title {
+  border: 2px solid var(--text-color);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--main-color);
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: '';
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: var(--main-color) solid;
+}
+
+.title::before {
+  left: 0;
+}
+
+.title::after {
+  left: 100%;
+}
+
+.about .about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: inherit;
+}
+
+@media (max-width: 767px) {
+  .about .about-content {
+    flex-direction: column;
+  }
+
+  .about .about-content .image {
+    flex-basis: 100%;
+    padding: 20px;
+  }
+
+  .about .about-content .image img {
+    max-width: 80%;
+  }
+
+  .about .about-content .content {
+    flex-basis: 100%;
+    text-align: center;
+  }
 
 }
+
+.about .about-content .image {
+  flex-basis: 40%;
+  padding: inherit;
+  text-align: center;
+}
+
+.about .about-content .image img {
+  max-width: 90%;
+  filter: drop-shadow(1px 1px 70px var(--main-color));
+  cursor: pointer;
+  transition: .4s;
+}
+
+.about .about-content .image img:hover {
+  filter: drop-shadow(1px 1px 20px var(--main-color));
+
+}
+
+.about .about-content .content {
+  flex-basis: 45%;
+  padding: inherit;
+}
+
+.about .about-content .content h3 {
+  font-size: 2rem;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.about .about-content .content p {
+  text-transform: capitalize;
+  line-height: 1.5;
+
+}
+
+/* End Container  */
