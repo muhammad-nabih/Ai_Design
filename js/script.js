@@ -6,22 +6,23 @@ const linksListLanding = document.querySelectorAll(".links li");
 const colorsItemsLinks = document.querySelectorAll(".colorsItems li");
 const stop = document.querySelector("#stop");
 const run = document.querySelector("#run");
+const intervalDuration = 5000;
+let backgroundRandomInterval;
 
-// Setting up an interval to update background images
-let backgroundRandomInterval = setInterval(
-  updateBackgroundImageOfLanding,
-  5000
-);
+// Function to set up the interval for updating background images
+function setupInterval() {
+  backgroundRandomInterval = setInterval(
+    updateBackgroundImageOfLanding,
+    intervalDuration
+  );
+}
 
-// Checking localStorage for previous user action (run/stop)
+// Checking localStorage for the previous user action (run/stop)
 const actionType = localStorage.getItem("actionType");
 if (actionType) {
   if (actionType === "run") {
     toggleActiveState(run, stop);
-    backgroundRandomInterval = setInterval(
-      updateBackgroundImageOfLanding,
-      5000
-    );
+    setupInterval();
   } else {
     toggleActiveState(stop, run);
     clearInterval(backgroundRandomInterval);
@@ -38,15 +39,12 @@ function toggleRandomBackgroundImage(action) {
     } else if (e.target.id === "run") {
       toggleActiveState(run, stop);
       localStorage.setItem("actionType", "run");
-      backgroundRandomInterval = setInterval(
-        updateBackgroundImageOfLanding,
-        5000
-      );
+      setupInterval();
     }
   });
 }
 
-// Function to toggle active state of elements
+// Function to toggle the active state of elements
 function toggleActiveState(activeElement, inactiveElement) {
   activeElement.classList.add("active");
   inactiveElement.classList.remove("active");
@@ -60,8 +58,8 @@ toggleRandomBackgroundImage(run);
 const colorStorage = localStorage.getItem("optionColor");
 const activeColor = localStorage.getItem("activeLink");
 
-// Function to set active state for color options
-function activeLi(colorsItemsLinks) {
+// Function to set the active state for color options
+function setActiveColorOption(colorsItemsLinks) {
   if (activeColor) {
     colorsItemsLinks.forEach((link) =>
       link.id === activeColor
@@ -70,20 +68,20 @@ function activeLi(colorsItemsLinks) {
     );
   }
 }
-activeLi(colorsItemsLinks);
+setActiveColorOption(colorsItemsLinks);
 
 if (colorStorage) {
   document.documentElement.style.setProperty("--main-color", colorStorage);
   localStorage.setItem("optionColor", colorStorage);
 }
 
-// Function to set color option and update localStorage
+// Function to set the color option and update localStorage
 function setColorOption(color) {
   document.documentElement.style.setProperty("--main-color", color);
   localStorage.setItem("optionColor", color);
 }
 
-// Toggle settings box visibility and add spin effect
+// Toggle settings box visibility and add a spin effect
 toggleSetting.addEventListener("click", () => {
   settingBox.classList.toggle("open");
   document.querySelector(".fa-gear").classList.toggle("fa-spin");
@@ -114,14 +112,14 @@ function getRandomImage() {
   return imageName;
 }
 
-// Function to update background image of the landing page
+// Function to update the background image of the landing page
 function updateBackgroundImageOfLanding() {
   let imageSource = getRandomImage();
   const img = new Image();
   img.src = imageSource;
   img.onload = (e) => {
     landingPage.style.backgroundImage = `url(${imageSource})`;
-    landingPage.style.transitionDuration = ".2s";
+    landingPage.style.transitionDuration = ".3s";
   };
 }
 

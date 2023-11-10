@@ -4,13 +4,11 @@
 /* Global Variables */
 :root {
   --text-color: #EEEEEE;
-  /* Text color variable */
+  --second-text-color: #b2afaf;
   --main-color: #00ADB5;
-  /* Main color variable */
   --bg-button-color: #393E46;
-  /* Background button color variable */
   --bg-color: #222831;
-  /* Background color variable */
+  --features-section-background: #222831;
 }
 
 /* Reset Elements */
@@ -20,11 +18,12 @@ li {
   text-decoration: unset;
   color: var(--text-color);
   list-style: none;
-  display: block;
+  user-select: none;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-color);
 }
 
 img {
@@ -33,13 +32,49 @@ img {
 
 ::selection {
   background-color: var(--main-color);
-  color: var(--text-color);
+  color: black;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  /* Set font for the body */
 }
+
+
+
+/* START GLOBAL STYLE ELEMENT  */
+.title {
+  border: 2px solid var(--text-color);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+  color: var(--main-color);
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: '';
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: var(--main-color) solid;
+}
+
+.title::before {
+  left: 0;
+}
+
+.title::after {
+  left: 100%;
+}
+
+/* END GLOBAL STYLE ELEMENT  */
 
 /* Start Setting Section */
 .setting-box {
@@ -148,8 +183,6 @@ body {
 
 .toggle-setting .fa-gear {
   color: var(--main-color);
-
-
 }
 
 #setting {
@@ -249,7 +282,7 @@ ul.colorsItems>li.active {
 
 .logo {
   user-select: none;
-  width: 70px;
+  width: 60px;
   display: flex;
   align-items: center;
 }
@@ -287,13 +320,11 @@ nav .links li.active a {
 .introduction-text {
   color: var(--text-color);
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  height: 200px;
 }
 
 .introduction-text h1 {
@@ -349,6 +380,7 @@ span.highlighter {
     display: grid;
     place-items: center;
     border: 1px solid transparent;
+
   }
 
   nav .links li a {
@@ -366,7 +398,6 @@ span.highlighter {
   }
 
   .logo {
-    /* display: none; */
     width: 120px;
   }
 
@@ -377,16 +408,61 @@ span.highlighter {
 
 /* Start Container  */
 .container {
-  padding: 20px;
   width: 100%;
-  margin: 10px auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--bg-color);
+  margin: 0px auto;
+  padding: 10px 20px;
   color: var(--text-color);
 }
+
+/* Start Features Section */
+.features {
+  margin: 0px auto;
+  padding: inherit;
+  background-color: var(--features-section-background);
+  width: 100%;
+  margin: 30px auto;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.feature {
+  padding: 20px;
+  border: solid 1px var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.feature:hover {
+  box-shadow: inset 0px 0px 16px var(--main-color);
+}
+
+.feature h4 {
+  text-transform: uppercase;
+}
+
+.feature p {
+  text-transform: capitalize;
+  color: var(--second-text-color);
+}
+
+.icon .icon-font {
+  color: var(--main-color);
+  border: 2px solid var(--second-text-color);
+  border-radius: 50%;
+  padding: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+/* End Features Section */
+
 
 /* Start About Section  */
 .about {
@@ -394,40 +470,13 @@ span.highlighter {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 10px;
+  padding: inherit;
   gap: 20px;
-}
-
-.about .title {
-  border: 2px solid var(--text-color);
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--about-section-background);
+  margin: 30px auto;
   position: relative;
-  color: var(--main-color);
 }
 
-.title::before,
-.title::after {
-  position: absolute;
-  content: '';
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: var(--text-color);
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: var(--main-color) solid;
-}
-
-.title::before {
-  left: 0;
-}
-
-.title::after {
-  left: 100%;
-}
 
 .about .about-content {
   display: flex;
@@ -435,6 +484,13 @@ span.highlighter {
   justify-content: space-between;
   flex-direction: row-reverse;
   padding: inherit;
+
+}
+
+
+
+.about .content {
+  min-height: 400px;
 }
 
 @media (max-width: 767px) {
@@ -492,5 +548,8 @@ span.highlighter {
   line-height: 1.5;
 
 }
+
+/* End About Section  */
+
 
 /* End Container  */
