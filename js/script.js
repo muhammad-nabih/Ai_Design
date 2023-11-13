@@ -6,6 +6,28 @@ const linksListLanding = document.querySelectorAll(".links li");
 const colorsItemsLinks = document.querySelectorAll(".colorsItems li");
 const stop = document.querySelector("#stop");
 const run = document.querySelector("#run");
+const timeline = document.querySelector(".timeline");
+const containers = document.querySelectorAll(".timeline .container");
+const line = document.querySelector(".line-element");
+
+// Start Timeline section
+window.addEventListener("scroll", () => {
+  // Check if the user has scrolled to the "our-skills" section
+  if (window.scrollY >= timeline.offsetTop-10) {
+    // Iterate through each container and apply animation with delay
+    containers.forEach((container, index) => {
+      container.classList.add("animation");
+       // Apply delay based on index
+      container.style.animationDelay = `${index}s`;
+    });
+
+    // Apply line animation
+    line.classList.add("line-animation");
+  }
+});
+
+
+// options
 const intervalDuration = 5000;
 let backgroundRandomInterval;
 

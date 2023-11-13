@@ -53,6 +53,11 @@ body {
   color: var(--main-color);
 }
 
+.title h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
 .title::before,
 .title::after {
   position: absolute;
@@ -72,6 +77,13 @@ body {
 
 .title::after {
   left: 100%;
+}
+
+main {
+  width: 100%;
+  margin: 0px auto;
+  padding: 10px 15px;
+  color: var(--text-color);
 }
 
 /* END GLOBAL STYLE ELEMENT  */
@@ -95,7 +107,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Comments: Styling for the colors section */
+/*  Styling for the colors section */
 .settings-container h2.colors {
   color: var(--main-color);
   background: #090c0e;
@@ -107,7 +119,7 @@ body {
   /* Color for h2 elements in the settings container */
 }
 
-/* Comments: Styling for the random background images options */
+/* Styling for the random background images options */
 .background-images-random_options>h2 {
   color: var(--text-color);
   font-size: .7rem;
@@ -160,7 +172,7 @@ body {
   left: 0;
 }
 
-/* Comments: Toggle settings button styling */
+/* Toggle settings button styling */
 .toggle-setting {
   position: absolute;
   left: 100%;
@@ -406,14 +418,6 @@ span.highlighter {
   }
 }
 
-/* Start Container  */
-.container {
-  width: 100%;
-  margin: 0px auto;
-  padding: 10px 20px;
-  color: var(--text-color);
-}
-
 /* Start Features Section */
 .features {
   margin: 0px auto;
@@ -437,6 +441,7 @@ span.highlighter {
   border-radius: 5px;
   cursor: pointer;
   transition: .3s;
+  user-select: none;
 }
 
 .feature:hover {
@@ -463,7 +468,6 @@ span.highlighter {
 
 /* End Features Section */
 
-
 /* Start About Section  */
 .about {
   display: flex;
@@ -477,7 +481,6 @@ span.highlighter {
   position: relative;
 }
 
-
 .about .about-content {
   display: flex;
   align-items: center;
@@ -487,12 +490,44 @@ span.highlighter {
 
 }
 
-
-
 .about .content {
   min-height: 400px;
 }
 
+.about .about-content .image {
+  flex-basis: 40%;
+  padding: inherit;
+  text-align: center;
+}
+
+.about .about-content .image img {
+  max-width: 90%;
+  filter: drop-shadow(1px 1px 70px var(--main-color));
+  cursor: pointer;
+  transition: .4s;
+}
+
+.about .about-content .image img:hover {
+  filter: drop-shadow(1px 1px 20px var(--main-color));
+}
+
+.about .about-content .content {
+  flex-basis: 45%;
+  padding: inherit;
+}
+
+.about .about-content .content h3 {
+  font-size: 2rem;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.about .about-content .content p {
+  text-transform: capitalize;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE ABOUT SECTION  */
 @media (max-width: 767px) {
   .about .about-content {
     flex-direction: column;
@@ -512,44 +547,173 @@ span.highlighter {
     text-align: center;
   }
 
+  .about .about-content .content h3 {
+    font-size: 1.3rem;
+  }
+
+  .about .about-content .content p {
+    font-size: .9rem;
+    line-height: 1.4;
+    width: 100%;
+  }
 }
 
-.about .about-content .image {
-  flex-basis: 40%;
-  padding: inherit;
-  text-align: center;
+/* End About Section  */
+/* Start Timeline  */
+.line {
+  position: relative;
+  max-width: 1200px;
+  margin: 100px auto;
 }
 
-.about .about-content .image img {
-  max-width: 90%;
-  filter: drop-shadow(1px 1px 70px var(--main-color));
-  cursor: pointer;
-  transition: .4s;
+div.line-element {
+  position: absolute;
+  content: '';
+  width: 6px;
+  border-radius: 3px;
+  height: 0%;
+  background-color: var(--main-color);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.about .about-content .image img:hover {
-  filter: drop-shadow(1px 1px 20px var(--main-color));
-
+div.line-animation {
+  animation: moveLine 4s linear forwards;
 }
 
-.about .about-content .content {
-  flex-basis: 45%;
-  padding: inherit;
+@keyframes moveLine {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
 }
 
-.about .about-content .content h3 {
-  font-size: 2rem;
+.timeline .container {
+  padding: 10px 50px;
+  position: relative;
+  width: 50%;
+  opacity: 0;
+}
+
+.timeline .animation {
+  animation: moveDown 1s linear forwards;
+}
+
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.left-container {
+  left: 0;
+}
+
+.right-container {
+  left: 50%;
+}
+
+.timeline .container .text-box {
+  padding: 20px 30px;
+  background-color: var(--bg-button-color);
+  position: relative;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.timeline .container .text-box h2 {
   color: var(--main-color);
   text-transform: uppercase;
 }
 
-.about .about-content .content p {
+.timeline .container .text-box p {
+  color: var(--second-text-color);
   text-transform: capitalize;
-  line-height: 1.5;
-
 }
 
-/* End About Section  */
+
+.timeline .container .text-box::before {
+  position: absolute;
+  content: '';
+  border-width: 15px;
+  border-color: transparent transparent transparent var(--bg-button-color);
+  border-style: solid;
+  left: 100%;
+  top: 50px;
+}
+
+.timeline .right-container .text-box::before {
+  left: -30px;
+  border-color: transparent var(--bg-button-color) transparent transparent;
+}
+
+.timeline .container .img {
+  text-align: center;
+  background-color: var(--text-color);
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 10;
+  right: -30px;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 3px solid var(--main-color);
+}
+
+.timeline .right-container .img {
+  left: -30px;
+}
+
+svg.my-icon {
+  font-size: 1.7rem;
+  color: var(--main-color);
+}
 
 
-/* End Container  */
+/* Start Responsive TimeLine  */
+
+@media (max-width: 767px) {
+  div.line-element {
+    left: 30px;
+  }
+
+  .line .container {
+    width: 100%;
+    padding-right: 25px;
+    padding-left: 80px;
+    margin: 50px auto;
+    left: 0;
+  }
+
+  .timeline .container .text-box {
+    font-size: 13px;
+  }
+
+  .text-box small {
+    font-size: 10px;
+  }
+
+  .timeline .container .img {
+    left: 0;
+  }
+
+  .timeline .container .text-box::before {
+    border-color: transparent var(--bg-button-color) transparent transparent;
+    left: -30px;
+  }
+}
+
+/* End Timeline */
