@@ -10,23 +10,6 @@ const timeline = document.querySelector(".timeline");
 const containers = document.querySelectorAll(".timeline .container");
 const line = document.querySelector(".line-element");
 
-// Start Timeline section
-window.addEventListener("scroll", () => {
-  // Check if the user has scrolled to the "our-skills" section
-  if (window.scrollY >= timeline.offsetTop-10) {
-    // Iterate through each container and apply animation with delay
-    containers.forEach((container, index) => {
-      container.classList.add("animation");
-       // Apply delay based on index
-      container.style.animationDelay = `${index}s`;
-    });
-
-    // Apply line animation
-    line.classList.add("line-animation");
-  }
-});
-
-
 // options
 const intervalDuration = 5000;
 let backgroundRandomInterval;
@@ -176,3 +159,43 @@ function activeLinkSettings(linksList) {
 // Applying active link settings for both links in landing and color options
 activeLinkSettings(linksListLanding);
 activeLinkSettings(colorsItemsLinks);
+
+//^ Start Timeline section
+window.addEventListener("scroll", () => {
+  // Check if the user has scrolled to the "our-skills" section
+  if (window.scrollY >= timeline.offsetTop - 10) {
+    // Iterate through each container and apply animation with delay
+    containers.forEach((container, index) => {
+      container.classList.add("animation");
+      // Apply delay based on index
+      container.style.animationDelay = `${index}s`;
+    });
+
+    // Apply line animation
+    line.classList.add("line-animation");
+  }
+});
+
+// Start Gallery
+const imageBox = document.querySelectorAll(".image-box");
+
+imageBox.forEach((imageBox) => {
+  imageBox.addEventListener("click", (e) => {
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    const imageViewer = document.createElement("div");
+    imageViewer.classList.add("imageViewer");
+    const img = document.createElement("img");
+    img.src = e.target.src;
+
+    imageViewer.appendChild(img);
+    overlay.appendChild(imageViewer);
+    document.body.appendChild(overlay);
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.className === "overlay") {
+    e.target.remove();
+  }
+});

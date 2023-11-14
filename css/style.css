@@ -86,6 +86,11 @@ main {
   color: var(--text-color);
 }
 
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 /* END GLOBAL STYLE ELEMENT  */
 
 /* Start Setting Section */
@@ -322,6 +327,7 @@ nav .links li a {
   transition: .3s;
   font-weight: bold;
   font-size: 1rem;
+  text-transform: uppercase;
 }
 
 nav .links li a:hover,
@@ -419,13 +425,7 @@ span.highlighter {
 }
 
 /* Start Features Section */
-.features {
-  margin: 0px auto;
-  padding: inherit;
-  background-color: var(--features-section-background);
-  width: 100%;
-  margin: 30px auto;
-}
+
 
 .features-container {
   display: grid;
@@ -474,10 +474,8 @@ span.highlighter {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: inherit;
   gap: 20px;
   background-color: var(--about-section-background);
-  margin: 30px auto;
   position: relative;
 }
 
@@ -717,3 +715,65 @@ svg.my-icon {
 }
 
 /* End Timeline */
+
+/* Start Gallery Section  */
+.gallery-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.gallery-content .image-box {
+  overflow: hidden;
+  border: 5px var(--text-color) solid;
+  text-align: center;
+  box-shadow: 0 0 7px var(--main-color);
+  cursor: pointer;
+  transition: .3s;
+}
+.gallery-content .image-box:hover{
+  filter: grayscale();
+}
+
+.gallery-content .image-box img {
+  max-width: 100%;
+  display: flex;
+  max-height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  background-color: #00000098;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.imageViewer {
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  border: 10px solid var(--text-color);
+  box-shadow: -1px -1px 10px var(--second-text-color);
+  transition: .3s;
+}
+
+
+.imageViewer img {
+  max-width: 100%;
+}
+
+@media screen and (max-width:767px) {
+  .imageViewer {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* End Gallery Section  */
