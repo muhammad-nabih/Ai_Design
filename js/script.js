@@ -199,3 +199,24 @@ document.addEventListener("click", (e) => {
     e.target.remove();
   }
 });
+
+const toggle = document.querySelector(".icon-navbar");
+const links = document.querySelector(".navbar-responsive ul");
+const introductionText = document.querySelector(
+  ".header-area .introduction-text"
+);
+
+let statusToggle = false;
+
+toggle.addEventListener("click", () => {
+    links.classList.toggle("active");
+  if (statusToggle===false) {
+    introductionText.style.display = "none";
+    statusToggle = true;
+  } else {
+    introductionText.style.display = "block";
+    statusToggle = false;
+  }
+
+
+});
