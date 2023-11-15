@@ -132,8 +132,8 @@ function updateBackgroundImageOfLanding() {
 function createTypedEffect() {
   let typed = new Typed("#type-output", {
     strings: [
-      "Our website harnesses provides innovative solutions",
-      " by <span class='highlighter'>AI</span>",
+      "Empowering learning  <span class='highlighter'>AI</span> basics to cutting-edge",
+      "for enthusiasts and beginners",
     ],
     typeSpeed: 50,
     backSpeed: 50,

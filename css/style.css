@@ -28,11 +28,12 @@ html {
 
 img {
   user-select: none;
+  cursor: pointer;
 }
 
 ::selection {
   background-color: var(--main-color);
-  color: black;
+  color: var(--text-color);
 }
 
 body {
@@ -80,15 +81,20 @@ body {
 }
 
 main {
-  width: 100%;
+  width: 90%;
   margin: 0px auto;
   padding: 10px 15px;
   color: var(--text-color);
 }
 
 section {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 40px 10px;
+}
+
+@media (max-width: 767px) {
+  section {
+    padding: 25px 10px;
+  }
 }
 
 /* END GLOBAL STYLE ELEMENT  */
@@ -104,6 +110,17 @@ section {
   left: -220px;
   background-color: #00000092;
   transition: .3s;
+}
+
+
+@media screen and (max-width: 767px) {
+  .setting-box {
+    width: 70%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: -70%;
+  }
 }
 
 .settings-container {
@@ -348,6 +365,7 @@ nav .links li.active a {
 .introduction-text h1 {
   text-transform: uppercase;
   margin: 0 0 .22rem 0;
+  font-size: 1.7rem;
 }
 
 span.highlighter {
@@ -406,7 +424,8 @@ span.highlighter {
     font-size: 1.2rem;
   }
 
-  nav .links li:hover {
+  nav .links li:hover,
+  nav .links li.active {
     background-color: #00000070;
     border: solid 1px var(--text-color);
   }
@@ -432,7 +451,7 @@ span.highlighter {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   text-align: center;
-  margin: 40px auto;
+  margin: 50px auto;
 }
 
 .feature {
@@ -488,9 +507,6 @@ span.highlighter {
 
 }
 
-.about .content {
-  min-height: 400px;
-}
 
 .about .about-content .image {
   flex-basis: 40%;
@@ -510,7 +526,7 @@ span.highlighter {
 }
 
 .about .about-content .content {
-  flex-basis: 45%;
+  flex-basis: 55%;
   padding: inherit;
 }
 
@@ -697,7 +713,12 @@ svg.my-icon {
   }
 
   .timeline .container .text-box {
-    font-size: 13px;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .timeline .container .text-box p {
+    line-height: 1.7;
   }
 
   .text-box small {
@@ -717,7 +738,7 @@ svg.my-icon {
 /* End Timeline */
 
 /* Start Gallery Section  */
-.gallery-content {
+#gallery .gallery-content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
@@ -733,7 +754,8 @@ svg.my-icon {
   cursor: pointer;
   transition: .3s;
 }
-.gallery-content .image-box:hover{
+
+.gallery-content .image-box:hover {
   filter: grayscale();
 }
 
@@ -767,6 +789,14 @@ svg.my-icon {
 
 .imageViewer img {
   max-width: 100%;
+
+}
+
+@media screen and (min-width:768px) {
+  .imageViewer {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 @media screen and (max-width:767px) {
@@ -777,3 +807,121 @@ svg.my-icon {
 }
 
 /* End Gallery Section  */
+
+/* Start Contact Us Section */
+
+.contact-us .info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  background-image: url(../images/contactUs-landing.jpg);
+  background-color: rgba(0, 0, 0, 0.706);
+  box-shadow: 1px 1px 20px var(--bg-button-color);
+  padding: 20px;
+  border-radius: 5px;
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 1px 1px 10px var(--main-color);
+}
+
+
+.contact-us .info .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.contact-us .info .img img {
+  filter: drop-shadow(1px 1px 50px var(--main-color));
+}
+
+.contact-us .info .img img:hover {
+  filter: drop-shadow(1px 1px 20px var(--main-color));
+}
+
+.contact-us .info .img img {
+  max-width: 100%;
+  transition: .3s;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+  padding: 10px;
+  background-color: #00000037;
+  width: 55%;
+}
+
+label {
+  font-weight: bold;
+  line-height: 1.6;
+  color: var(--main-color);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  caret-color: var(--main-color);
+  outline: none;
+  background-color: #00000037;
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: inset -1px -1px 12px var(--main-color);
+}
+
+textarea {
+  resize: none;
+}
+
+.contact-us .info button {
+  border: 1px solid var(--main-color);
+  background-color: transparent;
+  color: var(--main-color);
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: .3s;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.contact-us .info button:hover {
+  box-shadow: inset -1px -1px 25px var(--main-color);
+}
+
+@media screen and (max-width: 767px) {
+  .contact-us .info {
+    flex-direction: column;
+  }
+
+  .contact-us .info .img {
+    width: 80%;
+    padding: 20px 10px;
+  }
+
+  .contact-us .info .img img {
+    max-width: 80%;
+  }
+
+  form {
+    width: 80%;
+  }
+}
+
+
+/* End Contact Us Section */
