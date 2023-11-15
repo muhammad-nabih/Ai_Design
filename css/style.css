@@ -69,7 +69,7 @@ body {
   background-color: var(--text-color);
   top: 50%;
   transform: translate(-50%, -50%);
-  border: var(--main-color) solid;
+  border: 1px var(--main-color) solid;
 }
 
 .title::before {
