@@ -400,7 +400,7 @@ span.highlighter {
   padding: 20px;
   margin: 0;
   left: -105%;
-  transition: .2s;
+  transition: .1s;
   min-height: 400px;
 }
 
