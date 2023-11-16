@@ -428,7 +428,7 @@ span.highlighter {
   flex-direction: column;
   width: 100%;
   position: absolute;
-  top: -100%;
+  left: -100%;
   transition: .3s;
   background: #00000078;
   padding: 10px;
@@ -438,7 +438,7 @@ span.highlighter {
 }
 
 .navbar-responsive nav ul.active {
-  top: 0
+  left: 0
 }
 
 .navbar-responsive nav ul.links li {
