@@ -445,7 +445,6 @@ span.highlighter {
   width: 90%;
   text-align: center;
   padding: 5px;
-  transition: .3s;
   cursor: pointer;
   display: grid;
   place-items: center;
