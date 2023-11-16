@@ -3,6 +3,7 @@ const landingPage = document.querySelector(".landing-page");
 const settingBox = document.querySelector(".setting-box");
 const toggleSetting = document.querySelector(".toggle-setting");
 const linksListLanding = document.querySelectorAll(".links li");
+const linksListLandingPhone = document.querySelectorAll(".dropdown_menu li");
 const colorsItemsLinks = document.querySelectorAll(".colorsItems li");
 const stop = document.querySelector("#stop");
 const run = document.querySelector("#run");
@@ -158,6 +159,7 @@ function activeLinkSettings(linksList) {
 }
 // Applying active link settings for both links in landing and color options
 activeLinkSettings(linksListLanding);
+activeLinkSettings(linksListLandingPhone);
 activeLinkSettings(colorsItemsLinks);
 
 //^ Start Timeline section
@@ -200,23 +202,19 @@ document.addEventListener("click", (e) => {
   }
 });
 
-const toggle = document.querySelector(".icon-navbar");
-const links = document.querySelector(".navbar-responsive ul");
-const introductionText = document.querySelector(
-  ".header-area .introduction-text"
-);
+// Get the toggle button and dropdown menu elements
+const toggle = document.querySelector(".toggle_btn");
+const drop = document.querySelector(".dropdown_menu");
 
-let statusToggle = false;
+// Define the icons for the hamburger and close symbols
+const iconBars = `<i class="fa-solid fa-bars fa-2xl"></i>`;
+const iconXMark = `<i class="fa-solid fa-xmark fa-2xl"></i>`;
 
+// Add a click event listener to the toggle button
 toggle.addEventListener("click", () => {
-    links.classList.toggle("active");
-  if (statusToggle===false) {
-    introductionText.style.display = "none";
-    statusToggle = true;
-  } else {
-    introductionText.style.display = "block";
-    statusToggle = false;
-  }
+  // Toggle the "active" class on the dropdown menu
+  drop.classList.toggle("active");
 
-
+  // Update the toggle button's inner HTML based on the dropdown's state
+  toggle.innerHTML = drop.classList.contains("active") ? iconXMark : iconBars;
 });
