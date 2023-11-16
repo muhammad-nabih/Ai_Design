@@ -359,7 +359,7 @@ span.highlighter {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 70%;
+  width: 80%;
   gap: 30px;
   flex-wrap: wrap;
 }
@@ -409,7 +409,7 @@ span.highlighter {
 }
 
 .dropdown_menu li {
-  padding: 5px;
+  padding: 10px;
   width: 80%;
   text-align: center;
   cursor: pointer;
@@ -421,7 +421,6 @@ span.highlighter {
 .dropdown_menu li:hover {
   border: 1px solid var(--main-color);
 }
-
 
 .dropdown_menu li a {
   transition: .3s;
