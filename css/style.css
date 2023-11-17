@@ -110,7 +110,7 @@ section {
   top: 0;
   left: -220px;
   background-color: #00000092;
-  transition: .3s;
+  transition: .2s;
 }
 
 @media screen and (max-width: 991px) {
