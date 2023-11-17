@@ -398,13 +398,12 @@ span.highlighter {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 70px);
   gap: 20px;
   padding: 20px;
   margin: 0;
   top: -100%;
   transition: .1s;
-
 }
 
 .dropdown_menu.active {
@@ -455,7 +454,8 @@ span.highlighter {
   }
 
   .navbar {
-    background-color: rgba(0, 0, 0, 0.70);
+    background-color: rgb(0, 0, 0);
+    max-height: 70px;
   }
 
   .navbar .toggle_btn {
