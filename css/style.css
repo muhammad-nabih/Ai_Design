@@ -390,6 +390,7 @@ span.highlighter {
 }
 
 .dropdown_menu {
+  display: none;
   background-color: rgba(0, 0, 0, 0.70);
   position: relative;
   z-index: 99;
@@ -443,7 +444,16 @@ span.highlighter {
   display: none;
 }
 
+
 @media screen and (max-width:950px) {
+  .landing-page {
+    background-image: url(../images/landing1.jpg);
+  }
+
+  .background-images-random_options {
+    display: none;
+  }
+
   .navbar {
     background-color: rgba(0, 0, 0, 0.70);
   }
@@ -468,6 +478,12 @@ span.highlighter {
     font-size: .9rem;
   }
 
+}
+
+@media screen and (min-width:951px) {
+  .dropdown_menu {
+    display: none;
+  }
 }
 
 /*  End Navbar section */
