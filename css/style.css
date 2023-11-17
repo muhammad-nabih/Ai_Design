@@ -402,7 +402,7 @@ span.highlighter {
   padding: 20px;
   margin: 0;
   top: -100%;
-  transition: .3s;
+  transition: .1s;
 
 }
 
@@ -643,7 +643,7 @@ div.line-animation {
 }
 
 .timeline .animation {
-  animation: moveDown 1s linear forwards;
+  animation: moveDown .5s linear forwards;
 }
 
 @keyframes moveDown {
