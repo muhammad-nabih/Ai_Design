@@ -297,7 +297,7 @@ ul.colorsItems>li.active {
 
 /* Styling for the landing page */
 .landing-page {
-  padding: 10px;
+  padding: 0;
   background-color: #000000b9;
   width: 100%;
   height: 100vh;
@@ -351,7 +351,9 @@ span.highlighter {
   align-items: center;
   justify-content: space-between;
   color: var(--main-color);
-  padding: 5px 20px;
+  padding: 0px 20px;
+  position: relative;
+  z-index: 100;
 }
 
 .navbar ul {
@@ -388,29 +390,29 @@ span.highlighter {
 }
 
 .dropdown_menu {
-  background-color: rgba(0, 0, 0, 0.798);
+  background-color: rgba(0, 0, 0, 0.70);
   position: relative;
   z-index: 99;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: calc(100vh - 80px);
   gap: 20px;
   padding: 20px;
   margin: 0;
-  left: -105%;
-  transition: .1s;
-  min-height: 400px;
+  top: -100%;
+  transition: .3s;
+
 }
 
 .dropdown_menu.active {
-  left: 0;
+  top: 0;
 }
 
 .dropdown_menu li {
   padding: 10px;
-  width: 80%;
+  width: 50%;
   text-align: center;
   cursor: pointer;
   border: 1px solid transparent;
@@ -442,6 +444,10 @@ span.highlighter {
 }
 
 @media screen and (max-width:950px) {
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.70);
+  }
+
   .navbar .toggle_btn {
     display: block;
   }
@@ -450,8 +456,8 @@ span.highlighter {
     display: none;
   }
 
-  .introduction-text{
-    width:90%;
+  .introduction-text {
+    width: 90%;
   }
 
   .introduction-text h1 {
