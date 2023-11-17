@@ -391,7 +391,7 @@ span.highlighter {
 
 .dropdown_menu {
   display: none;
-  background-color: rgba(0, 0, 0, 0.70);
+  background-color: black;
   position: relative;
   z-index: 99;
   display: flex;
