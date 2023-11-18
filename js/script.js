@@ -175,7 +175,40 @@ activeLinkSettings(linksListLanding);
 activeLinkSettings(linksListLandingPhone);
 activeLinkSettings(colorsItemsLinks);
 
-//^ Start Timeline section
+// ^ Start Display Bullets
+
+const display = document.querySelector("#display");
+const hide = document.querySelector("#hide");
+const bulletsSection = document.querySelector(".bullets");
+let displayBulletsStorage = localStorage.getItem("isBulletsHidden")
+console.log(displayBulletsStorage);
+if (displayBulletsStorage === "true") {
+    bulletsSection.classList.add("hidden");
+    hide.classList.add("active");
+    display.classList.remove("active");
+} else {
+    bulletsSection.classList.remove("hidden");
+    display.classList.add("active");
+    hide.classList.remove("active");
+}
+
+hide.addEventListener("click", () => {
+  bulletsSection.classList.add("hidden");
+  hide.classList.add("active");
+  display.classList.remove("active");
+  // LocalStorage
+  localStorage.setItem("isBulletsHidden", true);
+});
+
+display.addEventListener("click", () => {
+  bulletsSection.classList.remove("hidden");
+  display.classList.add("active");
+  hide.classList.remove("active");
+  localStorage.setItem("isBulletsHidden", false);
+});
+
+
+//Start Timeline section
 window.addEventListener("scroll", () => {
   // Check if the user has scrolled to the "our-skills" section
   if (window.scrollY >= timeline.offsetTop - 10) {
@@ -231,7 +264,3 @@ toggle.addEventListener("click", () => {
   // Update the toggle button's inner HTML based on the dropdown's state
   toggle.innerHTML = drop.classList.contains("active") ? iconXMark : iconBars;
 });
-
-
-
-

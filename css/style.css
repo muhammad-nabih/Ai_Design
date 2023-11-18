@@ -124,7 +124,7 @@ section {
     left: -300px;
   }
 
-  .background-images-random_options {
+  .background-images-random_options , .display-bullets {
     padding: 5px 10px;
   }
 }
@@ -148,20 +148,23 @@ section {
 }
 
 /* Styling for the random background images options */
-.background-images-random_options>h2 {
+.background-images-random_options>h2,
+.display-bullets h2 {
   color: var(--text-color);
   font-size: .7rem;
   padding: inherit;
 }
 
-.background-images-random_options .action {
+.background-images-random_options .action,
+.display-bullets .action {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: inherit;
 }
 
-.background-images-random_options .action button {
+.background-images-random_options .action button,
+.display-bullets .action button {
   background-color: transparent;
   border: none;
   outline: none;
@@ -175,7 +178,8 @@ section {
   transition: var(--main-transition);
 }
 
-.background-images-random_options .action button::before {
+.background-images-random_options .action button::before,
+.display-bullets .action button::before {
   content: '';
   position: absolute;
   width: 0%;
@@ -188,12 +192,15 @@ section {
   z-index: -1;
 }
 
-.background-images-random_options .action button:hover {
+.background-images-random_options .action button:hover,
+.display-bullets .action button:hover {
   color: var(--main-color);
 }
 
 .background-images-random_options .action button:hover::before,
-.background-images-random_options .action button.active::before {
+.background-images-random_options .action button.active::before,
+.display-bullets .action button:hover::before,
+.display-bullets .action button.active::before {
   width: 100%;
 }
 
@@ -1022,6 +1029,10 @@ footer p span {
   transform: translate(-50%, -50%);
   gap: 8px;
   z-index: 10000;
+}
+
+.bullets.hidden {
+  display: none;
 }
 
 .bullets li {
