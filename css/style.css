@@ -108,7 +108,7 @@ section {
   height: 100vh;
   width: 220px;
   position: fixed;
-  z-index: 1000;
+  z-index: 1000000;
   top: 0;
   left: -220px;
   background-color: #00000092;
