@@ -10,6 +10,19 @@ const run = document.querySelector("#run");
 const timeline = document.querySelector(".timeline");
 const containers = document.querySelectorAll(".timeline .container");
 const line = document.querySelector(".line-element");
+const bullets = document.querySelectorAll(".bullets li");
+
+bullets.forEach((bullet) => {
+  bullet.addEventListener("click", (e) => {
+    const targetSection = document.querySelector(e.target.dataset.section);
+
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  });
+});
 
 // options
 const intervalDuration = 5000;
@@ -218,3 +231,7 @@ toggle.addEventListener("click", () => {
   // Update the toggle button's inner HTML based on the dropdown's state
   toggle.innerHTML = drop.classList.contains("active") ? iconXMark : iconBars;
 });
+
+
+
+
