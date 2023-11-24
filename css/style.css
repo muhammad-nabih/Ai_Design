@@ -54,12 +54,9 @@ body {
   position: relative;
   margin: 20px auto;
   color: var(--main-color);
+  cursor: pointer;
 }
 
-.title h2 {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
 
 .title::before,
 .title::after {
@@ -71,7 +68,8 @@ body {
   background-color: var(--text-color);
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px var(--main-color) solid;
+  border: 3px var(--main-color) solid;
+  z-index: 100;
 }
 
 .title::before {
@@ -82,6 +80,51 @@ body {
   left: 100%;
 }
 
+.title h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  z-index: 3
+}
+
+.title h2:hover {
+  color: white;
+}
+
+.title h2::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: .3s;
+  background-color: var(--main-color);
+}
+
+.title h2::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transition: .3s;
+  background-color: var(--main-color);
+
+}
+
+.title h2:hover::before,
+.title h2:hover::after {
+  width: 51%;
+  z-index: -2;
+
+}
+
+
+/* Start Main Container */
 main {
   width: 90%;
   margin: 0px auto;
@@ -124,7 +167,8 @@ section {
     left: -300px;
   }
 
-  .background-images-random_options , .display-bullets {
+  .background-images-random_options,
+  .display-bullets {
     padding: 5px 10px;
   }
 }
@@ -359,7 +403,7 @@ span.highlighter {
 }
 
 
-/*todo Start Navbar section */
+/* Start Navbar section */
 .navbar {
   display: flex;
   align-items: center;
@@ -665,7 +709,7 @@ div.line-animation {
 }
 
 .timeline .animation {
-  animation: moveDown .5s linear forwards;
+  animation: moveDown 1s linear forwards;
 }
 
 @keyframes moveDown {
@@ -984,16 +1028,15 @@ footer {
   text-align: center;
   width: 80%;
   margin: 10px auto;
-  padding: 30px;
+  padding: 10px 20px;
   border-top: 1px solid var(--main-color);
-
 }
 
 footer p {
   font-weight: bold;
   font-size: 1.1rem;
   color: var(--text-color);
-  line-height: 2;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -1004,13 +1047,12 @@ footer p span {
 @media screen and (max-width: 767px) {
   footer {
     width: 90%;
+
   }
 
   footer p {
-
     font-size: .7rem;
     color: var(--text-color);
-
   }
 }
 
