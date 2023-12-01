@@ -12,6 +12,11 @@ const containers = document.querySelectorAll(".timeline .container");
 const line = document.querySelector(".line-element");
 const bullets = document.querySelectorAll(".bullets li");
 
+// Run The Animation Library
+new WOW().init();
+// End Run The Animation Library
+
+
 bullets.forEach((bullet) => {
   bullet.addEventListener("click", (e) => {
     const targetSection = document.querySelector(e.target.dataset.section);
@@ -145,16 +150,13 @@ function updateBackgroundImageOfLanding() {
 // Function to create a typing effect using the type.js library
 function createTypedEffect() {
   let typed = new Typed("#type-output", {
-    strings: [
-      "Empowering learning  <span class='highlighter'>AI</span> basics to cutting-edge",
-      "for enthusiasts and beginners",
-    ],
+    strings: ["Mohamed Nabih", "FrontEnd Developer", "Ai User"],
     typeSpeed: 50,
     backSpeed: 50,
     backDelay: 1000,
     fadeOut: true,
     loop: true,
-    cursorChar: "",
+    cursorChar: " |",
   });
 }
 createTypedEffect();
@@ -180,16 +182,16 @@ activeLinkSettings(colorsItemsLinks);
 const display = document.querySelector("#display");
 const hide = document.querySelector("#hide");
 const bulletsSection = document.querySelector(".bullets");
-let displayBulletsStorage = localStorage.getItem("isBulletsHidden")
+let displayBulletsStorage = localStorage.getItem("isBulletsHidden");
 console.log(displayBulletsStorage);
 if (displayBulletsStorage === "true") {
-    bulletsSection.classList.add("hidden");
-    hide.classList.add("active");
-    display.classList.remove("active");
+  bulletsSection.classList.add("hidden");
+  hide.classList.add("active");
+  display.classList.remove("active");
 } else {
-    bulletsSection.classList.remove("hidden");
-    display.classList.add("active");
-    hide.classList.remove("active");
+  bulletsSection.classList.remove("hidden");
+  display.classList.add("active");
+  hide.classList.remove("active");
 }
 
 hide.addEventListener("click", () => {
@@ -206,7 +208,6 @@ display.addEventListener("click", () => {
   hide.classList.remove("active");
   localStorage.setItem("isBulletsHidden", false);
 });
-
 
 //Start Timeline section
 window.addEventListener("scroll", () => {
