@@ -160,6 +160,8 @@ section {
   left: -220px;
   background-color: #00000092;
   transition: var(--main-transition);
+    -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 991px) {
